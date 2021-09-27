@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>@youngmayor's PidifyJS: Source: ImageManager.js</title>
+
+        <script src="scripts/prettify/prettify.js"></script>
+        <script src="scripts/prettify/lang-css.js"></script>
+        <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+        <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    </head>
+
+    <body>
+
+        <div id="main">
+
+            <h1 class="page-title">Source: ImageManager.js</h1>
+
+            
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const Base64 = require("@youngmayor/base64");
+const Manager = require("./manager");
+
+/**
+ * @class ImageManager
+ * @extends {Manager}
+ */
+class ImageManager extends Manager {
+    /**
+     * @param {string} url
+     * @param {string} base64
+     * @private
+     * @ignore
+     */
+    constructor(url, base64) {
+        super(url, base64)
+
+        this.manager = Base64.manageImage(base64, 'png')
+    }
+
+    /**
+     * Download the PDF
+     * @param {string} filename What to save the download as
+     * @returns {null}
+     */
+    download(filename = `Pidification of ${this.url}.png`) {
+        return this.manager.download(filename)
+    }
+}
+
+module.exports = ImageManager
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+        </div>
+
+        <nav>
+            <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ImageManager.html">ImageManager</a></li><li><a href="PDFManager.html">PDFManager</a></li><li><a href="PidifierJS.html">PidifierJS</a></li><li><a href="PidifyError.html">PidifyError</a></li></ul>
+        </nav>
+
+        <br class="clear">
+
+        <footer>
+            Author: <a href="https://youngmayor.dev">Meyoron Aghogho (YoungMayor)</a>
+            <br/>
+            <a href="./pidifier.min.js" download="pidifier.min.js">Download PidifyJS Here</a>
+        </footer>
+
+        <script>
+            prettyPrint();
+        </script>
+        <script src="scripts/linenumber.js"></script>
+    </body>
+</html>

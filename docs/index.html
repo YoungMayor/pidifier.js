@@ -52,7 +52,7 @@
 <!-- [![code coverage](https://img.shields.io/coveralls/mzabriskie/axios.svg?style=flat-square)](https://coveralls.io/r/mzabriskie/axios) -->
 <!-- [![gitter chat](https://img.shields.io/gitter/room/mzabriskie/axios.svg?style=flat-square)](https://gitter.im/mzabriskie/axios) -->
 <!-- [![code helpers](https://www.codetriage.com/axios/axios/badges/users.svg)](https://www.codetriage.com/axios/axios) -->
-<p>The official Node Package for pidifier</p>
+<p>The official Node Package for pidifier v2</p>
 <h2>Table of Contents</h2>
 <ul>
 <li><a href="#features">Features</a></li>
@@ -66,6 +66,7 @@
 <h2>Features</h2>
 <ul>
 <li>Interact with the Pidifier API easily</li>
+<li>With a unified UI for pidifying a page, screenshotting page - full and preview (800px x 600px)</li>
 </ul>
 <h2>Browser Support</h2>
 <table>
@@ -148,14 +149,22 @@ import PidifyJS from '@youngmayor/pidifier.js';
 <h2>Usage</h2>
 <hr>
 <p>PidifyJS can be easily used to convert a web page to PDF as shown below.</p>
-<pre class="prettyprint source lang-js"><code>// Create PidifyJS instance 
-const Pidifier = new PidifyJS();
+<pre class="prettyprint source lang-js"><code>const url = 'https://example.com'
 
 // pidify a page
-const demoSitePDF = await PidifierJS.pidify('https://example.com');
+const demoSitePDF = await PidifyJS.pidify(url);
+
+// screenshot a page 
+const demoSiteScreenshot = await PidifyJS.screenshot(url);
+
+// preview-screenshot a page 
+const demoSitePreview = await PidifyJS.preview(url);
 
 
 // check if pidification was successful and perform actions
+// NOTE! All of the below methods are available to every method of pidification
+// But demoSitePDF was used
+
 if (demoSitePDF->success) {
     // ... Pidification was successful
     const demoSiteBase64 = demoSitePDF->getBase64();  // get the base64 encoding of the PDF
@@ -192,7 +201,7 @@ if (demoSitePDF->success) {
         </div>
 
         <nav>
-            <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Manager.html">Manager</a></li><li><a href="PidifierJS.html">PidifierJS</a></li><li><a href="PidifyError.html">PidifyError</a></li></ul>
+            <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ImageManager.html">ImageManager</a></li><li><a href="PDFManager.html">PDFManager</a></li><li><a href="PidifierJS.html">PidifierJS</a></li><li><a href="PidifyError.html">PidifyError</a></li></ul>
         </nav>
 
         <br class="clear">
